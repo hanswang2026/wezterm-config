@@ -247,10 +247,12 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 
 #### Copy+Paste
 
-| Keys                                          | Action               |
-| --------------------------------------------- | -------------------- |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> | Copy to Clipboard    |
-| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> | Paste from Clipboard |
+| Keys                                          | Action                                                                 |
+| --------------------------------------------- | ---------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd> | Copy to Clipboard                                                      |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> | Paste from Clipboard                                                   |
+| <kbd>Ctrl</kbd>+<kbd>c</kbd>                  | Copy to Clipboard <sub>(sends `Ctrl+C` when nothing is selected)</sub> |
+| <kbd>Ctrl</kbd>+<kbd>v</kbd>                  | Paste from Clipboard                                                   |
 
 &nbsp;
 
@@ -261,6 +263,15 @@ Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</k
 | <kbd>SUPER</kbd>+<kbd>LeftArrow</kbd>  | Move cursor to Line Start                                  |
 | <kbd>SUPER</kbd>+<kbd>RightArrow</kbd> | Move cursor to Line End                                    |
 | <kbd>SUPER</kbd>+<kbd>Backspace</kbd>  | Clear Line <sub>(does not work in PowerShell or cmd)</sub> |
+
+&nbsp;
+
+#### Multiline Input
+
+| Keys                              | Action                                                          |
+| --------------------------------- | --------------------------------------------------------------- |
+| <kbd>Shift</kbd>+<kbd>Enter</kbd> | Insert newline without submitting <sub>(sends `ESC`+`CR`)</sub> |
+| <kbd>Ctrl</kbd>+<kbd>Enter</kbd>  | Insert newline without submitting <sub>(sends `ESC`+`CR`)</sub> |
 
 &nbsp;
 

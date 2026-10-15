@@ -54,9 +54,29 @@ local keys = {
    { key = 'RightArrow', mods = mod.SUPER,     action = act.SendString('\u{1b}OF') },
    { key = 'Backspace',  mods = mod.SUPER,     action = act.SendString('\u{15}') },
 
+   -- multiline input --
+   -- ESC+CR is the sequence GitHub Copilot CLI's /terminal-setup uses for "insert newline"
+   { key = 'Enter',      mods = 'SHIFT',       action = act.SendString('\u{1b}\r') },
+   { key = 'Enter',      mods = 'CTRL',        action = act.SendString('\u{1b}\r') },
+
    -- copy/paste --
    { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
+   { key = 'v',          mods = 'CTRL',        action = act.PasteFrom('Clipboard') },
+   -- Windows Terminal style: copy the selection if there is one, otherwise send Ctrl+C through
+   {
+      key = 'c',
+      mods = 'CTRL',
+      action = wezterm.action_callback(function(window, pane)
+         local selection = window:get_selection_text_for_pane(pane)
+         if selection and selection ~= '' then
+            window:perform_action(act.CopyTo('Clipboard'), pane)
+            window:perform_action(act.ClearSelection, pane)
+         else
+            window:perform_action(act.SendKey({ key = 'c', mods = 'CTRL' }), pane)
+         end
+      end),
+   },
 
    { key = 'n',          mods = 'CTRL|SHIFT',  action = act.SendString('\u{2660}') },
    { key = 's',          mods = 'CTRL|SHIFT',  action = act.SendString('\u{203D}') },
