@@ -16,7 +16,7 @@ if platform.is_win then
    options.ssh_domains = {
       {
          name = 'ssh:wsl',
-         username = 'kevin',
+         username = 'hans',
          remote_address = 'localhost',
          multiplexing = 'None',
          default_prog = { 'fish', '-l' },
@@ -28,15 +28,13 @@ if platform.is_win then
       {
          name = 'wsl:ubuntu-fish',
          distribution = 'Ubuntu',
-         username = 'kevin',
-         default_cwd = '/home/kevin',
+         default_cwd = '~',
          default_prog = { 'fish', '-l' },
       },
       {
          name = 'wsl:ubuntu-bash',
          distribution = 'Ubuntu',
-         username = 'kevin',
-         default_cwd = '/home/kevin',
+         default_cwd = '~',
          default_prog = { 'bash', '-l' },
       },
    }
